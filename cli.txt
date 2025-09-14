@@ -1,0 +1,18 @@
+#### Post Immediately (Testing)
+```bash
+python main.py --post-now
+```
+
+#### Post Multiple Tweets
+```bash
+python main.py --post-now --count 3
+```
+
+#### View Statistics
+```bash
+python main.py --stats
+```
+
+#### Test Components
+```bash
+python main.py --test

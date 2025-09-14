@@ -1,0 +1,30 @@
+# Core Twitter API
+tweepy>=4.14.0
+
+# RSS Feed parsing
+feedparser>=6.0.10
+
+# Web requests
+requests>=2.31.0
+
+# Image processing
+Pillow>=10.0.0
+
+# Scheduling
+schedule>=1.2.0
+
+# Data handling
+python-dateutil>=2.8.2
+
+# Logging and utilities (usually included with Python)
+# json, logging, datetime, random, os, sys, signal are built-in
+
+# Optional: For better timezone handling
+pytz>=2023.3
+
+# Optional: For more advanced text processing
+nltk>=3.8.1
+textstat>=0.7.3
+
+# Optional: For environment variable management
+python-dotenv>=1.0.0
