@@ -133,10 +133,10 @@ ERROR_SETTINGS = {
     'post_without_image_on_error': True,
     
     # Maximum retries for failed operations
-    'max_retries': 3,
+    'max_retries': 1,
     
     # Delay between retries (seconds)
-    'retry_delay': 5
+    'retry_delay': 60
 }
 
 # =============================================================================
