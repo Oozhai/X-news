@@ -59,7 +59,7 @@ NEWS_SOURCES = {
 CRYPTO_HASHTAGS: List[str] = [
     '#Bitcoin', '#BTC', '#Ethereum', '#ETH', '#Crypto', '#Cryptocurrency',
     '#Blockchain', '#DeFi', '#Web3', '#Altcoin', '#Trading', '#Investing',
-    '#HODL', '#Binance', '#Coinbase', '#NFT', '#Solana', '#Cardano',
+    '#HODL', '#Binance', '#Coinbase', '#NFT', '#Solana', '#Cardano', 'Oozhai',
     '#Polkadot', '#Chainlink', '#CryptoNews', '#DigitalAssets', '#Fintech',
     '#Metaverse', '#GameFi', '#Yield', '#Staking', '#Layer2', '#Lightning'
 ]
@@ -70,7 +70,7 @@ CRYPTO_HASHTAGS: List[str] = [
 # =============================================================================
 CRYPTO_ACCOUNTS: List[str] = [
     '@CoinTelegraph', '@CoinDesk', '@cz_binance', '@elonmusk', '@VitalikButerin',
-    '@aantonop', '@APompliano', '@naval', '@balajis', '@cyber_hokie',
+    '@aantonop', '@APompliano', '@naval', '@balajis',
     '@CryptoWendyO', '@DocumentingBTC', '@Bitcoin', '@ethereum', '@solana',
     '@cardano', '@Polkadot', '@chainlink', '@MessariCrypto', '@glassnode',
     '@CryptoBirb', '@TheCryptoDog', '@CoinGecko', '@CoinMarketCap'
