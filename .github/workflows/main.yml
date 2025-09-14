@@ -1,0 +1,97 @@
+name: 🚀 Crypto Twitter Bot
+
+# Schedule the bot to run automatically
+on:
+  schedule:
+    # Run at your specified times: 2 AM, 6 AM, 10 AM, 2 PM, 6 PM, 10 PM UTC
+    - cron: '0 2,6,10,14,18,22 * * *'
+  
+  # Allow manual triggering from GitHub web interface
+  workflow_dispatch:
+    inputs:
+      tweet_count:
+        description: 'Number of tweets to post'
+        required: false
+        default: '1'
+        type: string
+
+# Define the job
+jobs:
+  post-crypto-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Step 1: Get the code
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+    
+    # Step 2: Setup Python
+    - name: 🐍 Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+    
+    # Step 3: Install dependencies
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    # Step 4: Run the bot
+    - name: 🤖 Run Crypto News Bot
+      env:
+        # Twitter API credentials (set these in GitHub Secrets)
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+        
+        # Unsplash API key (optional but recommended)
+        UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      run: |
+        echo "🚀 Starting Crypto News Bot..."
+        
+        # Post 4 tweets every 2 hours
+        python main.py --post-now --count 4
+        
+        echo "✅ Bot execution completed!"
+    
+    # Step 5: Show statistics (optional)
+    - name: 📊 Show Bot Statistics
+      run: |
+        echo "📊 Bot Statistics:"
+        python main.py --stats || echo "No stats file found yet"
+
+# Additional workflow for testing (runs on manual trigger only)
+  test-bot:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+    
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: 🧪 Test Bot Components
+      env:
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+        UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      run: |
+        echo "🧪 Testing bot components..."
+        python main.py --test
