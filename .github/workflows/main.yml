@@ -53,8 +53,8 @@ jobs:
       run: |
         echo "🚀 Starting Crypto News Bot..."
         
-        # Post 4 tweets every 2 hours
-        python main.py --post-now --count 4
+        # Post 2 tweets every 2 hours
+        python main.py --post-now --count 2
         
         echo "✅ Bot execution completed!"
     
