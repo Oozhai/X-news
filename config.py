@@ -136,7 +136,7 @@ ERROR_SETTINGS = {
     'max_retries': 1,
     
     # Delay between retries (seconds)
-    'retry_delay': 60
+    'retry_delay': 120
 }
 
 # =============================================================================
