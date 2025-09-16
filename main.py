@@ -24,7 +24,7 @@ from config import (
     validate_config, ERROR_SETTINGS
 )
 
-time.sleep(360)  # wait 3 minutes between tweets
+time.sleep(180)  # wait 3 minutes between tweets
 
 # Configure logging
 def setup_logging():
